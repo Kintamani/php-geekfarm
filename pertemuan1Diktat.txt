@@ -1,0 +1,39 @@
+A. Bubble Sort
+
+	do
+	swapped = false
+
+	for i = 1 to indexOfLastUnsortedElement-1
+	if leftElement > rightElement
+		swap(leftElement, rightElement)
+    		swapped = true
+
+	while swapped
+
+
+mengerjakan dahulu bagian kurawal yang paling dalam, 
+jika elemen kiri > elemen kanan akan melakukan tukar antara kiri dan kanan
+mengulang jika swipped bernilai TRUE
+
+B. SELECTION SORT
+
+	repeat (numOfElements - 1) times
+
+		set the first unsorted element as the minimum
+
+		for each of the unsorted elements //ulang elemen dari pertama
+			if element < currentMinimum //membandingkan elemen pertama dengan kedua
+			set element as new minimum //jika elemen pertama > yang kedua akan menset data 2 menjadi minimum yang baru
+		swap minimum with first unsorted position //mengganti posisi elemen terkecil dengan elemen pertama
+
+megerjakan elemen paling dalama
+
+C.INSERT SORT
+
+	mark first element as sorted //menandai sudah di sort
+	for each unsorted element X //loop sort emen x
+	'extract' the element X 
+		for j = lastSortedIndex down to 0
+			if current element j > X //jika elemen x yang di tandai < dari j
+			move sorted element to the right by 1 //lakukan pindah kanan 1x 
+		break loop and insert X here //menghentikan loop lalu inser elemen x
