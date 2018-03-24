@@ -18,14 +18,33 @@ SELECT SUM(amount) FROM payments WHERE paymentDate = "2004-10-28"
 SELECT * FROM payments WHERE amount > 100000 AND paymentDate = "2004-10-28"
 
 7.List the products in each product line.
+SELECT productLine, productName FROM products ORDER BY productName
+
 8.How many products in each product line?
+SELECT productline, count(*) FROM products GROUP BY productline
+
 9.What is the minimum payment received?
+SELECT MIN(amount) from payments
+
 10.List all payments greater than twice the average payment.
+SELECT * FROM payments WHERE amount > (SELECT AVG(amount)*2 from payments)
+
 11.What is the average percentage markup of the MSRP on buyPrice?
+SELECT AVG(MSRP - buyPrice) as rata2 from products
+
 12.How many distinct products does ClassicModels sell?
+SELECT DISTINCT productName from products
+ 
 13.Report the name and city of customers who don't have sales representatives?
+SELECT contactFirstName, contactLastName, city from customers WHERE salesRepEmployeeNumber IS NULL
+
 14.What are the names of executives with VP or Manager in their title? Use the CONCAT function to combine the employee's first name and last name into a single field for reporting.
+SELECT jobTitle, CONCAT(firstName, " ",lastName) as Nama FROM employees WHERE jobTitle LIKE "%VP%" OR jobTitle LIKE "%manager%"
+
 15.Which orders have a value greater than $5,000?
+SELECT SUM(priceEach*quantityOrdered) as total_order from orderdetails GROUP BY orderNumber HAVING total_order > 5000
+
+//--------------------------------------------------------------------------//
 
 One to many relationship
 1.Report the account representative for each customer.
