@@ -51,8 +51,14 @@ One to many relationship
 SELECT customerName, CONCAT(firstName," ",lastName) as Nama FROM customers JOIN employees ON salesRepEmployeeNumber = employeeNumber
 
 2.Report total payments for Atelier graphique.
+SELECT SUM(amount) AS Jumlah_pembayaran, customerName FROM customers JOIN payments ON payments.customerNumber = customers.customerNumber WHERE customerName = "Atelier graphique"
+
 3.Report the total payments by date
+SELECT SUM(amount) AS Jumlah_pembayaran, paymentDate FROM customers GROUP BY paymentDate
+
 4.Report the products that have not been sold.
+SELECT productCode, productName FROM products WHERE productCode NOT IN (SELECT productCode FROM orderdetails)
+
 5.List the amount paid by each customer.
 6.How many orders have been placed by Herkku Gifts?
 7.Who are the employees in Boston?
